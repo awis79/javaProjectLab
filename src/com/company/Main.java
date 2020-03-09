@@ -31,6 +31,10 @@ public class Main {
         me.pet.walk();
         me.pet.walk();
 
+        Car dirtyOne = new Car("Merol", "Merolowaty", 123, 256.5);
+        dirtyOne.plates = "XYZ1234";
+        me.car = dirtyOne;
+
     }
 
 
