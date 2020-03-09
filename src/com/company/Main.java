@@ -17,11 +17,20 @@ public class Main {
         Human me = new Human();
         me.fisrtName = "Kacper";
         me.lastName = "Warda";
+        me.pet = new Animal("Myszojeleń");
+
+        me.pet.name = "Alojzy";
+        me.pet.feed();
+
         me.pet = dog;
 
         me.pet.feed();
-        me.pet.feed();
-        me.pet.feed();
+
+        me.pet.walk();
+        me.pet.walk();
+        me.pet.walk();
+        me.pet.walk();
+
     }
 
 

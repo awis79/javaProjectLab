@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.*;
 import java.io.File;
 
 public class Animal  {
@@ -27,6 +28,16 @@ public class Animal  {
     void feed() {
         weight += 0.1;
         System.out.println("thx for snack");
-
     }
+
+    void walk() {
+        if (weight > 0) {
+            weight -= 5;
+            System.out.println("thx for walk");
+        }
+        else if (weight <= 0) {
+            System.out.println("f*ck your pet is dead!");
+        }
+    }
+
 }
