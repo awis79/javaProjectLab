@@ -3,39 +3,28 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
         Animal dog = new Animal("dog");
         dog.name = "Akita";
 
         dog.feed();
 
-        Animal lion = new Animal("dog");
+        Animal lion = new Animal("lion");
         lion.name = "leo";
 
         lion.feed();
 
         Human me = new Human();
-        me.fisrtName = "Kacper";
+        me.firstName = "Kacper";
         me.lastName = "Warda";
-        me.pet = new Animal("Myszojeleń");
-
-        me.pet.name = "Alojzy";
-        me.pet.feed();
-
         me.pet = dog;
 
-        me.pet.feed();
+        Car dirtyOne = new Car("Fiat", "Bravo", 2014, 1.8);
+        dirtyOne.plates = "GDA1234";
+        me.setCar(dirtyOne);
 
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
+        System.out.println(me.getCar().plates);
 
-        Car dirtyOne = new Car("Merol", "Merolowaty", 123, 256.5);
-        dirtyOne.plates = "XYZ1234";
-        me.car = dirtyOne;
+        System.out.println("I earn " + me.getSalary() + "UZB");
 
     }
-
-
 }

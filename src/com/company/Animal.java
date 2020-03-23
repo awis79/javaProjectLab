@@ -1,12 +1,11 @@
 package com.company;
 
-import javax.swing.*;
 import java.io.File;
 
-public class Animal  {
+public class Animal {
     final String species;
     String name;
-    private Double weight = 10.0;
+    private Double weight;
     File pic;
 
     static final public Double DEFAULT_DOG_WEIGHT = 10.0;
@@ -16,28 +15,32 @@ public class Animal  {
 
     public Animal(String species) {
         this.species = species;
-        if (species == "lion"){
+        if (species == "lion") {
             this.weight = DEFAULT_LION_WEIGHT;
-        } else if (species == "mouse"){
+        } else if (species == "mouse") {
             this.weight = DEFAULT_MOUSE_WEIGHT;
-        } else if (species == "DOG") {
+        } else if (species == "dog") {
             this.weight = DEFAULT_DOG_WEIGHT;
         }
     }
 
     void feed() {
-        weight += 0.1;
-        System.out.println("thx for snack");
-    }
-
-    void walk() {
-        if (weight > 0) {
-            weight -= 5;
-            System.out.println("thx for walk");
-        }
-        else if (weight <= 0) {
-            System.out.println("f*ck your pet is dead!");
+        if (weight <= 0) {
+            System.out.println("too late, sorry");
+        } else {
+            weight ++;
+            System.out.println("thx for food my weight is now " + this.weight);
         }
     }
 
+    void takeForAWalk(){
+        weight--;
+        if(weight <= 0){
+            System.out.println("that a dead animal you freak");
+        } else if(weight <= 3){
+            System.out.println("thx I'm hungry");
+        }else{
+            System.out.println("thx for a walk");
+        }
+    }
 }
