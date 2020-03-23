@@ -12,4 +12,8 @@ public class Phone {
         this.screenSize = screenSize;
         this.isAndroid = isAndroid;
     }
+
+    public String toString(){
+        return this.producer + " " + this.model + " " + this.isAndroid;
+    }
 }

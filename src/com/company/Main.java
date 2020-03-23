@@ -26,5 +26,21 @@ public class Main {
 
         System.out.println("I earn " + me.getSalary() + "UZB");
 
+        Human czlek = new Human();
+        czlek.firstName = "Maniek";
+        czlek.lastName = "Mamut";
+        czlek.setSalary(5000.0);
+
+        Car clenaOne = new Car("Fiat", "Bravo", 2014, 1.8);
+        czlek.setCar(clenaOne);
+
+        System.out.println(me.getCar());
+        System.out.println(czlek.getCar());
+        System.out.println(me);
+        System.out.println(me.pet);
+
+        System.out.println(czlek.getCar());
+        System.out.println(czlek.pet);
+        System.out.println(czlek.phone);
     }
 }

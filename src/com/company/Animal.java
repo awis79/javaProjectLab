@@ -43,4 +43,7 @@ public class Animal {
             System.out.println("thx for a walk");
         }
     }
+    public String toString(){
+        return this.species + "" + this.name;
+    }
 }
