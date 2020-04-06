@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -42,5 +45,14 @@ public class Main {
         System.out.println(czlek.getCar());
         System.out.println(czlek.pet);
         System.out.println(czlek.phone);
+
+        System.out.println(me.species);
+        me.feed();
+
+        System.out.println(me instanceof  Human);
+        System.out.println(me instanceof  Animal);
+        System.out.println(dirtyOne instanceof Object);
+
+        System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
     }
 }
