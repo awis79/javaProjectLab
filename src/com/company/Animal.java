@@ -1,8 +1,9 @@
 package com.company;
 
+import javax.swing.plaf.metal.MetalDesktopIconUI;
 import java.io.File;
 
-public class Animal {
+public abstract class Animal implements Edible, Saleable{
     final String species;
     String name;
     protected Double weight;
@@ -45,5 +46,21 @@ public class Animal {
     }
     public String toString(){
         return this.species + "" + this.name;
+    }
+
+    @Override
+    public void beEaten() throws Exception {
+        if(this instanceof Human){
+            throw new Exception("no way bustard are you cannibal od something!");
+        }
+        System.out.printf(this.toString() + "adioooooos");
+        weight = 0.0;
+    }
+    @Override
+    public void sell() throws Exception {
+        if(this instanceof Human){
+            throw new Exception("NO you cant do this!");
+        }
+        System.out.printf(this.toString() + "bonjiorno!");
     }
 }

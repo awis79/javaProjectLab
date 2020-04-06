@@ -54,5 +54,22 @@ public class Main {
         System.out.println(dirtyOne instanceof Object);
 
         System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
+
+
+        try {
+            me.pet.beEaten();
+            me.beEaten();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            me.pet.sell();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        me.getCar().sell();
+        me.sell();
+
     }
 }

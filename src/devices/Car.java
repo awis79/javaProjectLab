@@ -8,7 +8,7 @@ public class Car extends Device{
 
 
     public Car(String producer, String model, Integer yearOfProduction, Double engineVolumne) {
-
+        super (producer, model, yearOfProduction, engineVolumne)
         this.engineVolume = engineVolumne;
     }
 
