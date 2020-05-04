@@ -7,9 +7,11 @@ import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
+import java.net.MalformedURLException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         Animal dog = new Pet("dog");
         dog.name = "Akita";
 
@@ -25,7 +27,7 @@ public class Main {
         me.lastName = "Wiśniewski";
         me.pet = dog;
 
-        Car firstCar = new Car("Ford", "Focus", 2006, 1.6);
+        Car firstCar = new Car("Ford", "Focus", "red",2006, 1.6);
         firstCar.plates = "GKW123";
         me.setCar(firstCar);
 
@@ -38,7 +40,7 @@ public class Main {
         woman.lastName = "Nowak";
         woman.setSalary(5500.0);
 
-        Car secondCar = new Car("Fiat", "Bravo", 2014, 1.8);
+        Car secondCar = new Car("Fiat", "Bravo", "black",2014, 1.8);
         woman.setCar(secondCar);
 
         System.out.println(me.getCar());
@@ -48,8 +50,6 @@ public class Main {
         System.out.println(me.pet);
 
         System.out.println(me.species);
-
-        System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
 
         me.setSalary(null);
         System.out.println(me.getSalary());

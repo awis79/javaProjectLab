@@ -7,8 +7,8 @@ public class Car extends Device {
     public String plates;
 
 
-    public Car(String producer, String model, Integer yearOfProduction, Double engineVolumne) {
-        super(producer, model, yearOfProduction);
+    public Car(String producer, String model, String color, Integer yearOfProduction, Double engineVolumne) {
+        super(producer, model, color, yearOfProduction);
         this.engineVolume = engineVolumne;
     }
 
