@@ -1,75 +1,66 @@
 package com.company;
 
-import devices.Car;
-import devices.Phone;
+import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
-        Animal dog = new Animal("dog");
+        Animal dog = new Pet("dog");
         dog.name = "Akita";
 
         dog.feed();
 
-        Animal lion = new Animal("lion");
+        Animal lion = new Pet("lion");
         lion.name = "leo";
 
         lion.feed();
 
         Human me = new Human();
-        me.firstName = "Kacper";
-        me.lastName = "Warda";
+        me.firstName = "Alan";
+        me.lastName = "Wiśniewski";
         me.pet = dog;
 
-        Car dirtyOne = new Car("Fiat", "Bravo", 2014, 1.8);
-        dirtyOne.plates = "GDA1234";
-        me.setCar(dirtyOne);
+        Car firstCar = new Car("Ford", "Focus", 2006, 1.6);
+        firstCar.plates = "GKW123";
+        me.setCar(firstCar);
 
         System.out.println(me.getCar().plates);
 
         System.out.println("I earn " + me.getSalary() + "UZB");
 
-        Human czlek = new Human();
-        czlek.firstName = "Maniek";
-        czlek.lastName = "Mamut";
-        czlek.setSalary(5000.0);
+        Human woman = new Human();
+        woman.firstName = "Ola";
+        woman.lastName = "Nowak";
+        woman.setSalary(5500.0);
 
-        Car clenaOne = new Car("Fiat", "Bravo", 2014, 1.8);
-        czlek.setCar(clenaOne);
+        Car secondCar = new Car("Fiat", "Bravo", 2014, 1.8);
+        woman.setCar(secondCar);
 
         System.out.println(me.getCar());
-        System.out.println(czlek.getCar());
+        System.out.println(woman.getCar());
         System.out.println(me);
+
         System.out.println(me.pet);
 
-        System.out.println(czlek.getCar());
-        System.out.println(czlek.pet);
-        System.out.println(czlek.phone);
-
         System.out.println(me.species);
-        me.feed();
-
-        System.out.println(me instanceof  Human);
-        System.out.println(me instanceof  Animal);
-        System.out.println(dirtyOne instanceof Object);
 
         System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
 
+        me.setSalary(null);
+        System.out.println(me.getSalary());
+
+        FarmAnimal cow = new FarmAnimal("cow");
 
         try {
+            cow.beEaten();
             me.pet.beEaten();
-            me.beEaten();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        try {
-            me.pet.sell();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        me.getCar().sell();
-        me.sell();
-
     }
 }

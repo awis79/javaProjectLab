@@ -1,20 +1,20 @@
-package com.company;
+package com.company.creatures;
 
-import devices.Car;
-import devices.Phone;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    Animal pet;
-    Phone phone;
+    public String firstName;
+    public String lastName;
+    public Animal pet;
+    public Phone phone;
     private Car car;
 
     //v 1
-    private Double salary = 200.0;
+    private Double salary = 500.0;
 
-    public Human(String species) {
-        super("homo sapiens");
+    public Human() {
+        super("Human");
         this.weight = 90.0;
     }
 
@@ -31,10 +31,10 @@ public class Human extends Animal {
             System.out.println("Great you can buy it by cash");
             this.car = car;
         } else if (car.getValue() <= this.salary * 12) {
-            System.out.println("Not so great, but you can buy it on credit");
+            System.out.println("Not so good, but you can buy it on credit");
             this.car = car;
         } else {
-            System.out.println("Sorry, get a rise or find another car");
+            System.out.println("Sorry, you can not buy this car");
         }
     }
 
@@ -42,7 +42,8 @@ public class Human extends Animal {
         return this.car;
     }
 
-    public String toString(){
-        return this.firstName + " " + this.lastName + " " + this.salary;
+    public String toString() {
+        return this.firstName + " " + this.lastName;
     }
+
 }

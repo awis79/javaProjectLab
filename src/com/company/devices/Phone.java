@@ -1,16 +1,17 @@
-package devices;
+package com.company.devices;
 
 public class Phone extends Device {
     public final Double screenSize;
     public final boolean isAndroid;
 
     public Phone(String producer, String model, Double screenSize, boolean isAndroid, Integer yearOfProduction) {
-        super(producer, model);
+        super(producer, model, yearOfProduction);
         this.screenSize = screenSize;
         this.isAndroid = isAndroid;
     }
 
-    public String toString(){
-        return this.producer + " " + this.model + " " + this.isAndroid;
+    @Override
+    void turnOn() {
+        System.out.println("hello world");
     }
 }
