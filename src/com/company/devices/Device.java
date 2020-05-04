@@ -3,14 +3,16 @@ package com.company.devices;
 import com.company.Saleable;
 
 public abstract class Device implements Saleable {
-    public final String producer;
-    public final String model;
-    public final Integer yearOfProduction;
-    private Double value = 3200.0;
+    public String producer;
+    public String model;
+    public String color;
+    public Integer yearOfProduction;
+    protected Double value = 3200.0;
 
-    public Device(String producer, String model, Integer yearOfProduction) {
+    public Device(String producer, String model, String color, Integer yearOfProduction) {
         this.producer = producer;
         this.model = model;
+        this.color = color;
         this.yearOfProduction = yearOfProduction;
     }
 

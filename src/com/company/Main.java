@@ -62,5 +62,12 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        me.phone = new Phone("Apple","Iphone SE","white",2020,6.1,false);
+
+        me.phone.installAnApp("facebook");
+        me.phone.installAnApp("safari","2.0");
+        me.phone.installAnApp(new String[] {"messenger", "youtube"});
+
     }
 }
