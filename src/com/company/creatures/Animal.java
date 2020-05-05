@@ -13,6 +13,7 @@ public abstract class Animal implements Edible, Saleable {
     static final public Double DEFAULT_DOG_WEIGHT = 10.0;
     static final public Double DEFAULT_LION_WEIGHT = 190.0;
     static final public Double DEFAULT_MOUSE_WEIGHT = 0.05;
+    private final static Double DEFAULT_FOOD_WEIGHT = 1.0;
 
 
     public Animal(String species) {
@@ -31,11 +32,15 @@ public abstract class Animal implements Edible, Saleable {
     }
 
     public void feed() {
-        if (weight <= 0) {
-            System.out.println("too late, sorry");
+        feed(DEFAULT_FOOD_WEIGHT);
+    }
+
+    public void feed(Double feedWeight){
+        if (weight <= 0){
+            System.out.println("too late sorry you can not feed it");
         } else {
-            weight++;
-            System.out.println("Thank you! My weight is " + this.weight + " now");
+            weight += feedWeight;
+            System.out.println("you fed me thx my weight is " + this.weight + " now");
         }
     }
 

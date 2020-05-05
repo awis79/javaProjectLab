@@ -10,7 +10,6 @@ public class Human extends Animal {
     public Phone phone;
     private Car car;
 
-    //v 1
     private Double salary = 500.0;
 
     public Human() {

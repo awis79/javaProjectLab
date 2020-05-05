@@ -2,9 +2,11 @@ package com.company.devices;
 
 public class Car extends Device {
 
-    public final Double engineVolume;
+    public Double engineVolume;
 
     public String plates;
+
+    public boolean whichEngine = false;
 
 
     public Car(String producer, String model, String color, Integer yearOfProduction, Double engineVolumne) {

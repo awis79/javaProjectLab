@@ -16,6 +16,9 @@ public abstract class Device implements Saleable {
         this.yearOfProduction = yearOfProduction;
     }
 
+    public Device(String producer, String model, Integer yearOfProduction) {
+    }
+
     abstract void turnOn();
 
     public Double getValue() {

@@ -8,6 +8,7 @@ import com.company.devices.Car;
 import com.company.devices.Phone;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Main {
 
@@ -30,6 +31,8 @@ public class Main {
         Car firstCar = new Car("Ford", "Focus", "red",2006, 1.6);
         firstCar.plates = "GKW123";
         me.setCar(firstCar);
+        me.phone = new Phone("Samsung", "Galaxy S20", 6.1, true, 2020);
+
 
         System.out.println(me.getCar().plates);
 
@@ -51,23 +54,31 @@ public class Main {
 
         System.out.println(me.species);
 
+        System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
+
         me.setSalary(null);
         System.out.println(me.getSalary());
 
         FarmAnimal cow = new FarmAnimal("cow");
 
-        try {
-            cow.beEaten();
-            me.pet.beEaten();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String[] apps = {"chrome", "messenger"};
 
-        me.phone = new Phone("Apple","Iphone SE","white",2020,6.1,false);
+        me.phone.installAnApp("chrome");
+        me.phone.installAnApp("chrome","38.0");
+        me.phone.installAnApp(apps);
+        me.phone.installAnApp(new URL("https", "https://googleserver/chrome/38.0", 465, "chrome"));
 
-        me.phone.installAnApp("facebook");
-        me.phone.installAnApp("safari","2.0");
-        me.phone.installAnApp(new String[] {"messenger", "youtube"});
+        Animal parrot = new Pet("parrot");
+        Animal pig = new FarmAnimal("pig");
+        Animal myBrother = new Human();
 
+        System.out.println(parrot.toString());
+        System.out.println(cow.toString());
+        System.out.println(myBrother.toString());
+
+        me.feed();
+
+        me.pet.feed();
+        me.pet.feed(0.2);
     }
 }
