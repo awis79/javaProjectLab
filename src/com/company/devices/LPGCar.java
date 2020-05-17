@@ -1,7 +1,7 @@
 package com.company.devices;
 
-public class ElectricCar extends Car {
-    public ElectricCar(String model, String producer, Integer yearOfProduction) {
+public class LPGCar extends Car {
+    public LPGCar(String model, String producer, Integer yearOfProduction) {
         super(model, producer, yearOfProduction);
     }
 

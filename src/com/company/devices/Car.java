@@ -1,6 +1,6 @@
 package com.company.devices;
 
-public class Car extends Device {
+public abstract class Car extends Device {
 
     public Double engineVolume;
 
@@ -9,9 +9,8 @@ public class Car extends Device {
     public boolean whichEngine = false;
 
 
-    public Car(String producer, String model, String color, Integer yearOfProduction, Double engineVolumne) {
-        super(producer, model, color, yearOfProduction);
-        this.engineVolume = engineVolumne;
+    public Car(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
     }
 
     @Override
@@ -22,4 +21,6 @@ public class Car extends Device {
     public String toString() {
         return super.toString() + " " + this.plates;
     }
+
+    public abstract void reFuel();
 }

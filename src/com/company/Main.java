@@ -4,7 +4,7 @@ import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
+import com.company.devices.DieselCar;
 import com.company.devices.Phone;
 
 import java.net.MalformedURLException;
@@ -28,13 +28,8 @@ public class Main {
         me.lastName = "Wiśniewski";
         me.pet = dog;
 
-        Car firstCar = new Car("Ford", "Focus", "red",2006, 1.6);
-        firstCar.plates = "GKW123";
-        me.setCar(firstCar);
+        DieselCar firstCar = new DieselCar("Ford", "Focus", 2006);
         me.phone = new Phone("Samsung", "Galaxy S20", 6.1, true, 2020);
-
-
-        System.out.println(me.getCar().plates);
 
         System.out.println("I earn " + me.getSalary() + "UZB");
 
@@ -43,18 +38,16 @@ public class Main {
         woman.lastName = "Nowak";
         woman.setSalary(5500.0);
 
-        Car secondCar = new Car("Fiat", "Bravo", "black",2014, 1.8);
-        woman.setCar(secondCar);
+        DieselCar secondCar = new DieselCar("Fiat", "Bravo", 2014);
 
-        System.out.println(me.getCar());
-        System.out.println(woman.getCar());
         System.out.println(me);
 
         System.out.println(me.pet);
 
         System.out.println(me.species);
 
-        System.out.println(new Phone("Nokia", "3310", 1.0, false, 2000) instanceof Object);
+        new Phone("Nokia", "3310", 1.0, false, 2000);
+        System.out.println(true);
 
         me.setSalary(null);
         System.out.println(me.getSalary());
