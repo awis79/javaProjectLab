@@ -56,7 +56,7 @@ public abstract class Animal implements Edible, Saleable {
     }
 
     public String toString() {
-        return this.species + " " + this.name;
+        return this.species + " " + this.name + " " + weight;
     }
 
     @Override
@@ -69,10 +69,19 @@ public abstract class Animal implements Edible, Saleable {
     }
 
     @Override
-    public void sell() throws Exception {
-        if (this instanceof Human) {
-            throw new Exception("Slavery is banned now, sorry");
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (this instanceof Human) throw new Exception("you can not do it");
+
+        if (seller.pet == null) System.out.println("I have not any pet");
+        else {
+            if (buyer.cash < price) System.out.println("sorry you have not got enough money");
+            else {
+                buyer.cash = -price;
+                seller.cash = +price;
+                buyer.pet = this;
+                seller.pet = null;
+                System.out.println("Ms/Mr " + buyer.firstName + " bought from Ms/Mr " + seller.firstName + " " + buyer.pet.name + " for price:  " + price);
+            }
         }
-        System.out.println("You sold an animal " + this);
     }
 }

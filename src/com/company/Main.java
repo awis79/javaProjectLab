@@ -1,18 +1,82 @@
 package com.company;
 
 import com.company.creatures.Animal;
-import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
 import com.company.devices.DieselCar;
-import com.company.devices.Phone;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.company.devices.Transaction;
 
 public class Main {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) {
+
+        Human me = new Human("Homo sapiens", 3);
+        DieselCar firstCar = new DieselCar("Focus", "Ford", 2006, 5000.0);
+        DieselCar secondCar = new DieselCar("A5", "Audi", 2020, 100000.0);
+        DieselCar thirdCar = new DieselCar("Toledo", "Seat", 2002, 7000.0);
+        DieselCar fourthCar = new DieselCar("Golf", "VW", 2008, 20000.0);
+        DieselCar fifthCar = new DieselCar("126p", "Fiat", 1098, 10000.0);
+        DieselCar sixthCar = new DieselCar("Mondeo", "Ford", 2010, 30000.0);
+        DieselCar seventhCar = new DieselCar("Polo", "VW", 2008, 12000.0);
+        DieselCar eighthCar = new DieselCar("Leon", "Seat", 2006, 9000.0);
+        DieselCar ninthCar = new DieselCar("Fabia", "Skoda", 2004, 3000.0);
+        DieselCar tenthCar = new DieselCar("A4", "Audi", 2005, 15000.0);
+
+        Human firstOwner = new Human("homo sapiens sapiens", 3);
+        firstOwner.firstName = "Maniek";
+        Human secondOwner = new Human("homo sapiens sapiens", 3);
+        secondOwner.firstName = "Franek";
+        Human thirdOwner = new Human("homo sapiens sapiens", 3);
+        thirdOwner.firstName = "Gerald";
+
+        Transaction firstTransaction = new Transaction(firstOwner, secondOwner, 6000.0, "10.11.2019");
+        Transaction secondTransaction = new Transaction(secondOwner, thirdOwner, 100000.0, "25.01.2010");
+        Transaction thirdTransaction = new Transaction(thirdOwner, me, 50000.0, "22.01.2020");
+
+        firstCar.listOfTransactions.add(firstTransaction);
+        fifthCar.listOfTransactions.add(secondTransaction);
+        firstCar.listOfTransactions.add(thirdTransaction);
+
+        me.setSalary(1000000.0);
+        me.setCar(fifthCar, 0);
+        me.setCar(secondCar, 2);
+        me.setCar(thirdCar, 1);
+        me.sortGarage();
+        me.firstName = "Rafał";
+        me.cash = 50000.0;
+
+        Human buyer = new Human("homo sapiens sapiens", 0);
+        buyer.setSalary(100000.0);
+        buyer.firstName = "Karol";
+        buyer.cash = 1000000.0;
+        buyer.setCar(seventhCar, 0);
+        buyer.setCar(tenthCar, 2);
+
+        System.out.println(me.getCar(0));
+        System.out.println(me.getCar(1));
+        System.out.println(me.getCar(2));
+        System.out.println(buyer.getCar(0));
+        System.out.println(buyer.getCar(1));
+        System.out.println(buyer.getCar(2));
+        try {
+            firstCar.sell(me, buyer, 20000.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(buyer.cash);
+        System.out.println(me.cash);
+        System.out.println(buyer.getCar(0));
+        System.out.println(buyer.getCar(1));
+        System.out.println(buyer.getCar(2));
+
+        for (int i = 0; i < firstCar.listOfTransactions.size(); i++) {
+            System.out.println(firstCar.listOfTransactions.get(i));
+        }
+
+        System.out.println(firstCar.wasOwner(me));
+        System.out.println(firstCar.wasSold(buyer, me));
+        System.out.println(firstCar.numberOfTransactions());
+
         Animal dog = new Pet("dog");
         dog.name = "Akita";
 
@@ -22,56 +86,5 @@ public class Main {
         lion.name = "leo";
 
         lion.feed();
-
-        Human me = new Human();
-        me.firstName = "Alan";
-        me.lastName = "Wiśniewski";
-        me.pet = dog;
-
-        DieselCar firstCar = new DieselCar("Ford", "Focus", 2006);
-        me.phone = new Phone("Samsung", "Galaxy S20", 6.1, true, 2020);
-
-        System.out.println("I earn " + me.getSalary() + "UZB");
-
-        Human woman = new Human();
-        woman.firstName = "Ola";
-        woman.lastName = "Nowak";
-        woman.setSalary(5500.0);
-
-        DieselCar secondCar = new DieselCar("Fiat", "Bravo", 2014);
-
-        System.out.println(me);
-
-        System.out.println(me.pet);
-
-        System.out.println(me.species);
-
-        new Phone("Nokia", "3310", 1.0, false, 2000);
-        System.out.println(true);
-
-        me.setSalary(null);
-        System.out.println(me.getSalary());
-
-        FarmAnimal cow = new FarmAnimal("cow");
-
-        String[] apps = {"chrome", "messenger"};
-
-        me.phone.installAnApp("chrome");
-        me.phone.installAnApp("chrome","38.0");
-        me.phone.installAnApp(apps);
-        me.phone.installAnApp(new URL("https", "https://googleserver/chrome/38.0", 465, "chrome"));
-
-        Animal parrot = new Pet("parrot");
-        Animal pig = new FarmAnimal("pig");
-        Animal myBrother = new Human();
-
-        System.out.println(parrot.toString());
-        System.out.println(cow.toString());
-        System.out.println(myBrother.toString());
-
-        me.feed();
-
-        me.pet.feed();
-        me.pet.feed(0.2);
     }
 }

@@ -1,6 +1,6 @@
 package com.company.devices;
 
-import java.net.MalformedURLException;
+import com.company.creatures.Human;
 import java.net.URL;
 
 public class Phone extends Device {
@@ -13,31 +13,58 @@ public class Phone extends Device {
         this.isAndroid = isAndroid;
     }
 
+    public String toString() {
+        return super.toString() + " " + screenSize + " " + isAndroid;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return 0;
+    }
+
     @Override
     void turnOn() {
-        System.out.println("hello world");
     }
 
-    public void installAnApp(String appName) throws MalformedURLException {
-        this.installAnApp(appName, "latest");
-    }
-
-    public void installAnApp(String appName, String version) throws MalformedURLException {
-        URL url = new URL("https", "https://ourAppStore/" + appName + "/" + version, 546, appName);
-        this.installAnApp(url);
-    }
-
-    public void installAnApp(URL url) {
-        System.out.println("App installed " + url.getFile());
-    }
-
-    public void installAnApp(String[] appNames) throws MalformedURLException {
-        for (String appName : appNames) {
-            installAnApp(appName);
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (seller.phone == null) System.out.println("I have not got any phone");
+        else {
+            if (buyer.cash < price) System.out.println("sorry you have not got enough money");
+            else {
+                buyer.cash = -price;
+                seller.cash = +price;
+                buyer.phone = this;
+                seller.phone = null;
+                System.out.println("Ms/Mr " + buyer.firstName + " bought from Ms/Mr " + seller.firstName + " " + buyer.pet.name + " for price:  " + price);
+            }
         }
     }
 
-    public String toString() {
-        return "Phone: " + this.producer + " " + this.model + " " + this.screenSize;
+    static final String DEFAULT_SERVER_ADDRESS = "play.google.com";
+    static final String DEFAULT_VERSION = "1.11.02";
+    static final String DEFAULT_PROTOCOL = "https";
+
+
+    public void installApp(String appName) {
+        System.out.println("You installed " + appName);
+    }
+
+    public void installApp(String appName, String version) {
+        System.out.println("You installed " + appName + " version: " + version);
+    }
+
+    public void installApp(String appName, String version, String serverAdress) {
+        System.out.println("You installed " + appName + " version: " + version + " " + " from server: " + serverAdress);
+    }
+
+    public void installApp(String[] appNames) {
+        for (String appName : appNames) {
+            installApp(appName);
+        }
+    }
+
+    public void installApp(URL appURL) {
+        System.out.println("You installed " + appURL);
     }
 }

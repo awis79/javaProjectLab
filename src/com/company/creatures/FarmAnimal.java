@@ -5,6 +5,11 @@ public class FarmAnimal extends Animal {
         super(species);
     }
 
+    @Override
+    public void beEaten() {
+        System.out.println("WOW it bit me");
+    }
+
     public String toString() {
         return "FarmAnimal " + super.toString();
     }
