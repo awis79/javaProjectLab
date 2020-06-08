@@ -2,6 +2,8 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Phone extends Device {
     public final Double screenSize;
@@ -16,6 +18,8 @@ public class Phone extends Device {
     public String toString() {
         return super.toString() + " " + screenSize + " " + isAndroid;
     }
+
+    public ArrayList<Application> appList = new ArrayList<Application>();
 
     @Override
     public int compareTo(Car o) {
@@ -50,12 +54,66 @@ public class Phone extends Device {
         System.out.println("You installed " + appName);
     }
 
+    public void installApp(Human owner, Application app) throws Exception {
+        if (owner.cash < app.price) throw new Exception("nie stac Cie");
+        this.appList.add(0, app);
+        owner.cash -= app.price;
+    }
+
+    public void isAppInstalled(Application app) {
+        for (Application application : this.appList) {
+            if (application == app) {
+                System.out.println("już zainstalowałeś tą aplikacje");
+                break;
+            }
+        }
+        System.out.println("Nie zainstalowałeś jeszcze tej apki");
+    }
+
+    public void isAppInstalledv2(Application app) {
+        for (Application listOfApp : this.appList) {
+            if (listOfApp.name == app.name) {
+                System.out.println("już zainstalowałeś tą aplikacje");
+                break;
+            }
+        }
+        System.out.println("Nie zainstalowałeś jeszcze tej apki");
+    }
+
+    public void appsForFree() {
+        for (Application listOfApp : this.appList) {
+            if (listOfApp.price == 0.0) System.out.println(listOfApp);
+        }
+    }
+
+    public double appsValue() {
+        Double totalvalue = 0.0;
+        for (Application application : this.appList) {
+            totalvalue += application.price;
+        }
+        return totalvalue;
+    }
+
+    public void sortAppsAlphabetic() {
+        this.appList.sort(Application.nameComparator);
+        for (Application listOfApp : this.appList) {
+            System.out.println(listOfApp);
+        }
+    }
+
+    public void sortAppsPrice() {
+        this.appList.sort(Application.priceComparator);
+        for (Application listOfApp : this.appList) {
+            System.out.println(listOfApp);
+        }
+    }
+
     public void installApp(String appName, String version) {
         System.out.println("You installed " + appName + " version: " + version);
     }
 
-    public void installApp(String appName, String version, String serverAdress) {
-        System.out.println("You installed " + appName + " version: " + version + " " + " from server: " + serverAdress);
+    public void installApp(String appName, String version, String serverAddress) {
+        System.out.println("You installed " + appName + " version: " + version + " " + " from server: " + serverAddress);
     }
 
     public void installApp(String[] appNames) {
